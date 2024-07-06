@@ -41,16 +41,26 @@ void main_task(__unused void *params) {
     cyw43_arch_deinit();
 }
 
-void vLaunch( void) {
+void vLaunch(void) {
     TaskHandle_t task;
     xTaskCreate(main_task, "TestMainThread", TEST_TASK_STACK_SIZE, NULL, TEST_TASK_PRIORITY, &task);
     vTaskStartScheduler();
 }
 
-int main( void )
-{
+int main(void) {
     stdio_init_all();
     vLaunch();
-    f_mkdir("a.c");
     return 0;
+}
+
+void _link() {
+    printf("not implemented - do not use\n");
+}
+
+void _stat() {
+    printf("not implemented - do not use\n");
+}
+
+void _unlink() {
+    printf("not implemented - do not use\n");
 }
